@@ -43,7 +43,7 @@ def __successive_division(n, x):  # 辗转相除法
         n //= x  # 剩下余数
 
 
-def binary_system(x, base_x, base_y):
+def binary_system(x: [int, str], base_x: int, base_y: int) -> str:
     """转化进制
 
     >>> print(binary_system(2542, 7, 12))
@@ -71,7 +71,10 @@ def binary_system(x, base_x, base_y):
 
 
 def pi(length: int):
-    """计算无限长的Π"""
+    """计算无限长的Π
+
+    :param length: 返回计算Π的长度
+    """
     surplus = length
     length = (length * 14) // 3 + 14
     e, pre = 0, 10000
