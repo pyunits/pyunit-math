@@ -68,30 +68,3 @@ def binary_system(x: [int, str], base_x: int, base_y: int) -> str:
     if int(bs, base_y) == y:  # 检验进制是否正确
         return bs
     raise ValueError('验证进制错误!')  # 如果检验失败,返回错误
-
-
-def pi(length: int):
-    """计算无限长的Π
-
-    :param length: 返回计算Π的长度
-    """
-    surplus = length
-    length = (length * 14) // 3 + 14
-    e, pre = 0, 10000
-    f = [pre // 5] * (length + 1)
-    for b in range(length, 0, -14):
-        flag = 0
-        for g in range(b, 0, -1):
-            s = 2 * g - 1
-            flag = flag * g + f[g] * pre
-            f[g] = flag % s
-            flag = flag // s
-        p = e + flag // pre
-        if surplus > 0:
-            len_p = len(str(p))
-            sur = len_p if surplus >= len_p else surplus
-            yield str(p)[:sur]
-            surplus -= len_p
-            if surplus <= 0:
-                return
-        e = flag % pre

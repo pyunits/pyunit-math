@@ -3,13 +3,22 @@
 # @Time  : 2020/2/18 15:23
 # @Author: Jtyoui@qq.com
 from setuptools import setup, find_packages
+from distutils.extension import Extension
+from os.path import join
+import os
 from pyunit_math import __version__, __author__, __description__, __email__, __names__, __url__
 
-with open('README.md', encoding='utf-8') as f:
+dirs = os.path.abspath(os.path.dirname(__file__))
+
+with open(dirs + os.sep + 'README.md', encoding='utf-8') as f:
     long_text = f.read()
 
+ext_modules = [
+    Extension('pyunit_math.pi', [join(dirs, 'pyunit_math', 'pi.c')], extra_compile_args=['-O3'])
+]
+
 setup(
-    name=__names__.lower(),
+    name=__names__,
     version=__version__,
     description=__description__,
     long_description=long_text,
@@ -20,12 +29,15 @@ setup(
     license='MIT Licence',
     packages=find_packages(),
     platforms='any',
-    package_data={'': ['*']},
+    package_data={__names__: ['*.py', '*.c']},
     install_requires=['scipy', 'numpy'],
     classifiers=[
         "Programming Language :: Python :: 3",
+        "Programming Language :: C",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: POSIX :: Linux"
     ],
     zip_safe=False,
+    ext_modules=ext_modules
 )

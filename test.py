@@ -2,15 +2,12 @@
 # -*- coding: utf-8 -*-
 # @Time  : 2020/2/26 17:38
 # @Author: Jtyoui@qq.com
-from pyunit_math import pi, binary_system, Distance
+from pyunit_math import ppi, cpi, binary_system, Distance
 
 
 def pi_test():
-    s = ''
-    for i in pi(1302):
-        print(i, end='')
-        s += str(i)
-    print('\n', len(s))
+    ppi(100_0000)
+    print(cpi(100_0000))
 
 
 def bs_test():
@@ -25,6 +22,10 @@ def distance_test():
 
 
 if __name__ == '__main__':
-    # pi_test()
+    import time
+
+    start = time.time()
+    pi_test()
+    print(time.time() - start)
     # bs_test()
-    distance_test()
+    # distance_test()
