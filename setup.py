@@ -14,7 +14,7 @@ with open(dirs + os.sep + 'README.md', encoding='utf-8') as f:
     long_text = f.read()
 
 ext_modules = [
-    Extension('pyunit_math.pi', [join(dirs, 'pyunit_math', 'pi.c')], extra_compile_args=['-O3'])
+    Extension('pyunit_math.pi', [join(dirs, 'pi.c')], extra_compile_args=['-O3'])
 ]
 
 setup(
