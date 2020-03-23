@@ -226,7 +226,8 @@ class Distance:
         return distance.dice(x, y, w)
 
     def hamming(self, x=None, y=None, w=None):
-        """
+        """汉明距离
+
         两个等长字符串s1与s2之间的汉明距离定义为将其中一个变为另外一个所需要作的最小替换次数。
 
         x = [1, 0, 0]

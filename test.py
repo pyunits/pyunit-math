@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time  : 2020/2/26 17:38
 # @Author: Jtyoui@qq.com
-from pyunit_math import pi, binary_system
+from pyunit_math import pi, binary_system, Distance
 
 
 def pi_test():
@@ -18,6 +18,13 @@ def bs_test():
     print(binary_system('2dqy', 36, 2))  # 将36进制转为2进制
 
 
+def distance_test():
+    distance = Distance(x=[1, 2, 3], y=[2, 3, 4], w=None)
+    print(distance.cosine())
+    print(distance.hamming())
+
+
 if __name__ == '__main__':
     # pi_test()
-    bs_test()
+    # bs_test()
+    distance_test()
