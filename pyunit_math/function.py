@@ -3,6 +3,8 @@
 # @Time  : 2019/5/17 14:43
 # @Author: Jtyoui@qq.com
 import math
+import random
+import time
 
 
 def tetrahedron_volume(r1, r2, r3, r4, r5, r6):
@@ -68,3 +70,23 @@ def binary_system(x: [int, str], base_x: int, base_y: int) -> str:
     if int(bs, base_y) == y:  # 检验进制是否正确
         return bs
     raise ValueError('验证进制错误!')  # 如果检验失败,返回错误
+
+
+def uuid6():
+    """生成64位的超大UUID，每一位有62种状态
+
+    前12位是时间序列,只有在同一飞秒(1飞秒等于一亿分之一秒)的时间中生成 62**52 种状态才会相同。这个数字比宇宙中的所有原子数量还要大。
+
+    :return: 生成的uuid的大小写敏感的
+    """
+    status = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+              'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B',
+              'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+              'V', 'W', 'X', 'Y', 'Z')
+    t = time.time() * 1_0000_0000
+    u = binary_system(int(t), 10, 36)
+    while True:
+        u += random.choice(status)
+        if len(u) >= 64:
+            break
+    return u

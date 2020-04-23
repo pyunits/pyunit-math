@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time  : 2020/2/26 17:38
 # @Author: Jtyoui@qq.com
-from pyunit_math import ppi, cpi, binary_system, Distance
+from pyunit_math import ppi, cpi, binary_system, Distance, uuid6
 
 
 def pi_test():
@@ -21,11 +21,16 @@ def distance_test():
     print(distance.hamming())
 
 
-if __name__ == '__main__':
-    import time
+def uuid_test():
+    print(uuid6())
 
-    start = time.time()
-    pi_test()
-    print(time.time() - start)
+
+if __name__ == '__main__':
+    # import time
+    #
+    # start = time.time()
+    # pi_test()
+    # print(time.time() - start)
     # bs_test()
     # distance_test()
+    uuid_test()
